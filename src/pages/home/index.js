@@ -1,5 +1,6 @@
-import React from 'react'
-import { sports, types, regions } from '../../data/globalData'
+import './Home.css';
+import React from 'react';
+import { sports, types, regions } from '../../data/globalData';
 
 export default function Home() {
    return (

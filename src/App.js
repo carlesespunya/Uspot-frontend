@@ -6,7 +6,6 @@ import Navbar from './components/Navbar';
 import ErrorPage from './pages/ErrorPage';
 import Signup from './pages/auth/Signup';
 import Login from './pages/auth/Login';
-import PrivateView from './pages/PrivateView';
 import IsPrivate from './components/IsPrivate';
 
 function App() {
@@ -18,7 +17,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/private" element={<IsPrivate><PrivateView /></IsPrivate>} />
+            <Route path="/private" element={<IsPrivate></IsPrivate>} />
             <Route path="*" element={<ErrorPage />} />
          </Routes>
       </div>

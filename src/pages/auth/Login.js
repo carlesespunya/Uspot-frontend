@@ -1,3 +1,4 @@
+import './Auth.css';
 import axios from 'axios';
 import React, { useState, useContext } from 'react';
 import toast from 'react-hot-toast';
