@@ -1,13 +1,14 @@
 import React, { useContext } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
+import logo from '../assets/logo.png'
 
 export default function Navbar() {
    const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
    const navigate = useNavigate();
    return (
       <div>
-         {user && <p>Hello {user.username}</p>}
+         <img src={logo} alt="Logo" />
          <ul>
             <li><NavLink className={(element) => element.isActive ? 'selected' : ''} to="/">Home</NavLink></li>
             {!isLoggedIn && <li><NavLink className={(element) => element.isActive ? 'selected' : ''} to="/signup">Sign up</NavLink></li>}
