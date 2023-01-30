@@ -38,3 +38,7 @@
    color: #FFFFFF;
    padding-left: 45.4px !important;
 }
+
+.navbar-link:hover {
+   color: #f5c392;
+}
