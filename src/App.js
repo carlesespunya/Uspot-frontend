@@ -1,7 +1,7 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
-import Home from './pages/Home/index';
+import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import ErrorPage from './pages/ErrorPage';
 import Signup from './pages/Auth/Signup';
@@ -17,7 +17,10 @@ import MyProfile from './pages/MyProfile';
 function App() {
    return (
       <div className="App">
-         <Toaster />
+         <Toaster
+            position="bottom-left"
+            reverseOrder={false}
+         />
          <Navbar />
          <Routes>
             <Route path="/" element={<Home />} />
