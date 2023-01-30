@@ -17,7 +17,10 @@ import MyProfile from './pages/MyProfile';
 function App() {
    return (
       <div className="App">
-         <Toaster />
+         <Toaster
+            position="bottom-left"
+            reverseOrder={false}
+         />
          <Navbar />
          <Routes>
             <Route path="/" element={<Home />} />
