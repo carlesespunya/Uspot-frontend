@@ -24,9 +24,9 @@ function App() {
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
             <Route path="/bookings" element={<IsPrivate><Bookings /></IsPrivate>} />
-            <Route path="/experience" element={<IsPrivate><Experience /></IsPrivate>} />
+            <Route path="/experiences/:experienceId" element={<IsPrivate><Experience /></IsPrivate>} />
             <Route path="/experiences" element={<Experiences />} />
-            <Route path="/profile" element={<IsPrivate><Profile /></IsPrivate>} />
+            <Route path="/users/:userId" element={<IsPrivate><Profile /></IsPrivate>} />
             <Route path="/myProfile" element={<IsPrivate><MyProfile /></IsPrivate>} />
             <Route path="*" element={<ErrorPage />} />
          </Routes>
