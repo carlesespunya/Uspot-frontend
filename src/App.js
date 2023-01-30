@@ -7,10 +7,10 @@ import ErrorPage from './pages/ErrorPage';
 import Signup from './pages/Auth/Signup';
 import Login from './pages/Auth/Login';
 import IsPrivate from './components/IsPrivate';
-import Bookings from './pages/bookings';
-import Experience from './pages/experience';
-import Experiences from './pages/experiences';
-import Profile from './pages/profile';
+import Bookings from './pages/Bookings';
+import Experience from './pages/Experience';
+import Experiences from './pages/Experiences';
+import Profile from './pages/Profile';
 import MyProfile from './pages/MyProfile';
 
 
