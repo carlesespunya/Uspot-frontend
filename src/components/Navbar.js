@@ -1,21 +1,22 @@
+import './Navbar.css';
 import React, { useContext } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
+import logo from '../assets/logo.svg'
 
 export default function Navbar() {
-   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
-   const navigate = useNavigate();
+   const { isLoggedIn } = useContext(AuthContext);
+
    return (
-      <div>
-         {user && <p>Hello {user.username}</p>}
-         <ul>
-            <li><NavLink className={(element) => element.isActive ? 'selected' : ''} to="/">Home</NavLink></li>
-            {!isLoggedIn && <li><NavLink className={(element) => element.isActive ? 'selected' : ''} to="/signup">Sign up</NavLink></li>}
-            {!isLoggedIn && <li><NavLink className={(element) => element.isActive ? 'selected' : ''} to="/login">Login</NavLink></li>}
-            {isLoggedIn && <li><NavLink className={(element) => element.isActive ? 'selected' : ''} to="/private">Private view</NavLink></li>}
-            {isLoggedIn && <li><button onClick={() => logOutUser()}>Log out</button></li>}
-            <li><button onClick={() => navigate(-1)}>Go back</button></li>
+      <nav className='navbar'>
+         <NavLink to="/"><img src={logo} alt="Logo" className="navbar-logo" /></NavLink>
+         <ul className="navbar-links">
+            <li className="navbar-link"><NavLink className={(element) => element.isActive ? 'selected' : ''} to="/experiences">Uexperiences</NavLink></li>
+            {!isLoggedIn && <li className="navbar-link"><NavLink className={(element) => element.isActive ? 'selected' : ''} to="/signup">Sign up</NavLink></li>}
+            {!isLoggedIn && <li className="navbar-link"><NavLink className={(element) => element.isActive ? 'selected' : ''} to="/login">Login</NavLink></li>}
+            {isLoggedIn && <li className="navbar-link"><NavLink className={(element) => element.isActive ? 'selected' : ''} to="/bookings">Bookings</NavLink></li>}
+            {isLoggedIn && <li className="navbar-link"><NavLink className={(element) => element.isActive ? 'selected' : ''} to="/myProfile">My Profile</NavLink></li>}
          </ul>
-      </div>
+      </nav>
    )
 }
