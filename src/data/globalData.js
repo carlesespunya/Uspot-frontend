@@ -153,7 +153,60 @@ const regions = {
    ]
 }
 
-const bookingStatus = ["Accepted", "Pending", "Canceled"]
-const eventStatus = ['Open', 'Full', 'Started', 'Finished', 'Canceled']
+const bookingStatus = {
+   data: [
+      {
+         name: 'Accepted',
+         key: 'Accepted',
+         img: '',
+         color: '#4FA941'
+      }, {
+         name: 'Pending',
+         key: 'Pending',
+         img: '',
+         color: '#4FA941'
+      }, {
+         name: 'Canceled',
+         key: 'Canceled',
+         img: '',
+         color: '#4FA941'
+      }
+   ]
+}
+const eventStatus = {
+   data: [
+      {
+         name: 'Open Spots',
+         key: 'Open',
+         img: '',
+         color: '#4FA941'
+      },
+      {
+         name: 'Fully Booked',
+         key: 'Full',
+         img: '',
+         color: '#58595B'
+      },
+      {
+         name: 'Started',
+         key: 'Started',
+         img: '',
+         color: '#F47920'
+      },
+      {
+         name: 'Finished',
+         key: 'Finished',
+         img: '',
+         color: '#261F1D'
+      },
+      {
+         name: 'Canceled',
+         key: 'Canceled',
+         img: '',
+         color: '#58595B'
+      }
+   ]
+}
+
 
 export { types, sports, regions, bookingStatus, eventStatus }
