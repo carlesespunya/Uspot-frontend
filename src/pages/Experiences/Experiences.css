@@ -1,10 +1,19 @@
+.experiences{
+   padding: 50px 70px;
+   max-width: 1393px;
+   margin: auto;
+}
+
+.experiences-title{
+font-weight: 700;
+   font-size: 33.18px;
+   line-height: 40px;
+}
+
 .experiences-list-box{
    display: flex;
    flex-wrap: wrap;
    justify-content: center;
-   max-width: 1393px;
-   padding: 14px 70px 70px 70px;
-   margin: auto;
 }
 
 .experiences-list-card {

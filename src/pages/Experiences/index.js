@@ -20,12 +20,12 @@ export default function Experiences() {
    if (status === "error") return <h1>{JSON.stringify(error)}</h1>
 
    return (
-      <>
+      <div className="experiences">
+         <h1 className="experiences-title">U-Experiences</h1>
          <div className="experiences-search">
 
          </div>
          <div className="experiences-list">
-            <h1>Experiences</h1>
             <div className="experiences-list-box">
                {data.data.events.map(event => {
                   return (
@@ -60,8 +60,6 @@ export default function Experiences() {
                })}
             </div>
          </div>
-
-
-      </>
+      </div>
    )
 }
