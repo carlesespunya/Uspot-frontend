@@ -23,7 +23,7 @@ const types = {
          name: 'Sport Trip',
          key: 'Trip',
          img: '',
-         color: '#261F1D'
+         color: '#40798C'
       }]
 };
 
