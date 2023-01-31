@@ -4,6 +4,8 @@ import { useQuery } from "@tanstack/react-query"
 import fetchEvents from "./fetchers/events"
 import { useSearchParams } from 'react-router-dom';
 import Card from '../../components/ui/Card';
+import { types, eventStatus } from '../../data/globalData';
+
 
 export default function Experiences() {
    const [params, setParams] = useSearchParams()
@@ -37,9 +39,15 @@ export default function Experiences() {
 
                               </div>
                            </div>
+                           <div className="experiences-list-card-type" style={{ backgroundColor: types.data.find(type => type.key === event.type).color  }}>
+                              {types.data.find(type => type.key === event.type).name}
+                           </div>
+                           <div className="experiences-list-card-status" style={{ backgroundColor: eventStatus.data.find(status => status.key === event.status).color }}>
+                              {eventStatus.data.find(status => status.key === event.status).name}
+                           </div>
+
 
                            <p className="experiences-list-card-title">{ event.title }</p>
-                           {event.type}
                            {event.status}
                            {event.location}
                            {event.region}
