@@ -1,5 +1,7 @@
 import axios from "axios";
 
-export default function fetchEvents() {
-   return axios.get(`http://localhost:8000/api/v1/events`);
+export default function fetchEvents(query = {}) {
+   return axios.get(`${process.env.REACT_APP_API_URL}/events`,
+      { params: query }
+   );
 };
