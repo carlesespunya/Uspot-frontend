@@ -10,24 +10,28 @@ import FormattedDate from '../../utils/FormattedDate';
 
 export default function Experiences() {
    const [params, setParams] = useSearchParams()
-   const [selectedSport, setSelectedSport] = useState()
+   const [selected, setSelected] = useState({ sport: undefined, type: undefined, status: undefined });
 
-   const handleSportChange = (e) => {
-      setParams((prevParams) => {
+   const handleChange = (e, category) => {
+      setParams(prevParams => {
          if (e.target.value === "All") {
-            const { sport, ...rest } = prevParams;
-            return rest;
+            prevParams.delete(category);
+            return prevParams
          }
-         return { ...prevParams, sport: e.target.value };
-      });
+         prevParams.set(category, e.target.value);
+         return prevParams
+      })
    }
 
    useEffect(() => {
-      if (params.has("sport")) setSelectedSport(params.get("sport"))
-   }, [params])
+      if (params.has("sport")) setSelected(prevSelected => ({ ...prevSelected, sport: params.get("sport") }));
+      if (params.has("type")) setSelected(prevSelected => ({ ...prevSelected, type: params.get("type") }));
+      if (params.has("status")) setSelected(prevSelected => ({ ...prevSelected, status: params.get("status") }));
+   }, []);
+
 
    const { status, error, data } = useQuery({
-      queryKey: ["events", { sport: params.get("sport") }],
+      queryKey: ["events", { sport: params.get("sport"), type: params.get("type"), status: params.get("status") }],
       keepPreviousData: true,
       queryFn: () => fetchEvents(params)
    })
@@ -46,7 +50,7 @@ export default function Experiences() {
             <h2>Filter</h2>
             <div className="sport-filter">
                Sport
-               <select value={selectedSport} onChange={handleSportChange}>
+               <select value={selected.sport} onChange={(e) => handleChange(e, "sport")}>
                   <option value="All">All</option>
                   {sports.data.map((sport) => (
                      <option key={sport.key} value={sport.key}>
@@ -55,7 +59,28 @@ export default function Experiences() {
                   ))}
                </select>
             </div>
-
+            <div className="type-filter">
+               Type
+               <select value={selected.type} onChange={(e) => handleChange(e, "type")}>
+                  <option value="All">All</option>
+                  {types.data.map((sport) => (
+                     <option key={sport.key} value={sport.key}>
+                        {sport.name}
+                     </option>
+                  ))}
+               </select>
+            </div>
+            <div className="status-filter">
+               Status
+               <select value={selected.status} onChange={(e) => handleChange(e, "status")}>
+                  <option value="All">All</option>
+                  {eventStatus.data.map((sport) => (
+                     <option key={sport.key} value={sport.key}>
+                        {sport.name}
+                     </option>
+                  ))}
+               </select>
+            </div>
          </div>
          <div className="experiences-list">
             <div className="experiences-list-box">
