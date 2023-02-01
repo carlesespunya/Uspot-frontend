@@ -83,3 +83,15 @@
    display: flex;
    justify-content: space-between;
 }
+
+.experiences-list-card-location{
+   white-space: nowrap;
+   overflow: auto;
+   display: block;
+}
+
+.experiences-list-card-price{
+   width: 60px;
+   padding-left: 10px;
+   text-align: end;
+}
