@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query"
 import fetchEvents from "./fetchers/events"
 import { useSearchParams } from 'react-router-dom';
 import ExperiencesList from './ExperiencesList';
-import Filter from './filter'
+import Filter from './Filter'
 
 export default function Experiences() {
    const [params] = useSearchParams()
