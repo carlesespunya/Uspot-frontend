@@ -37,7 +37,8 @@ export default function Login() {
    }
 
    return (
-      <div>
+      <div className="auth-form">
+         <h1>Login</h1>
          <form onSubmit={handleSubmit}>
             <label>Email</label>
             <input required type="email" name="email" value={user.email} onChange={handleChange} />
