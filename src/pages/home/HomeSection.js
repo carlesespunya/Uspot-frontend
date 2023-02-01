@@ -8,7 +8,7 @@ export default function HomeSection({ section }) {
          <h2 className="home-section-title">{section.header}</h2>
          <Carousel>
             {section.data.map(option => {
-               return <HomeSectionCard option={option} />
+               return <HomeSectionCard option={option} key={option.key}/>
             })}
          </Carousel>
       </div>
