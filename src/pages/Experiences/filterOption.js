@@ -16,7 +16,7 @@ export function FilterOption({ category, categoryData }) {
       })
    }
 
-   useEffect(() => {
+   useEffect(() => {
       if (params.get(category)) return setValue(params.get(category))
       setValue("All")
    }, [params, category])

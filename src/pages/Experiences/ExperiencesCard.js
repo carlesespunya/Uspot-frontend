@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "../../components/ui/Card";
-import ExperiencesCardTop from './ExperiencesCardTop';
-import ExperiencesCardBottom from './ExperiencesCardBottom';
+import ExperiencesCardTop from "./ExperiencesCardTop";
+import ExperiencesCardBottom from "./ExperiencesCardBottom";
 
 export default function ExperiencesCard({ event }) {
    return (

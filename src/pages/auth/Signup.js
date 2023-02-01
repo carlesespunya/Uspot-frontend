@@ -42,6 +42,7 @@ export default function Signup() {
 
    return (
       <div className="auth-form">
+         <h1>Sign Up</h1>
          <form onSubmit={handleSubmit}>
             <label>Username</label>
             <input required type="text" name="username" value={user.username} onChange={handleChange} />
