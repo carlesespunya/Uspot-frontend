@@ -4,30 +4,36 @@ import { useQuery } from "@tanstack/react-query"
 import fetchEvents from "./fetchers/events"
 import { useSearchParams } from 'react-router-dom';
 import Card from '../../components/ui/Card';
-import { types, eventStatus, sports } from '../../data/globalData';
+import { types, eventStatus, sports, regions } from '../../data/globalData';
 import FormattedDate from '../../utils/FormattedDate';
 
 
 export default function Experiences() {
    const [params, setParams] = useSearchParams()
-   const [selectedSport, setSelectedSport] = useState()
+   const [selected, setSelected] = useState({ sport: undefined, type: undefined, status: undefined, region: undefined });
 
-   const handleSportChange = (e) => {
-      setParams((prevParams) => {
+   const handleChange = (e, category) => {
+      setParams(prevParams => {
          if (e.target.value === "All") {
-            const { sport, ...rest } = prevParams;
-            return rest;
+            prevParams.delete(category);
+            return prevParams
          }
-         return { ...prevParams, sport: e.target.value };
-      });
+         prevParams.set(category, e.target.value);
+         return prevParams
+      })
    }
 
    useEffect(() => {
-      if (params.has("sport")) setSelectedSport(params.get("sport"))
-   }, [params])
+      if (params.has("sport")) setSelected(prevSelected => ({ ...prevSelected, sport: params.get("sport") }));
+      if (params.has("type")) setSelected(prevSelected => ({ ...prevSelected, type: params.get("type") }));
+      if (params.has("status")) setSelected(prevSelected => ({ ...prevSelected, status: params.get("status") }));
+      if (params.has("region")) setSelected(prevSelected => ({ ...prevSelected, status: params.get("region") }));
+
+   }, []);
+
 
    const { status, error, data } = useQuery({
-      queryKey: ["events", { sport: params.get("sport") }],
+      queryKey: ["events", { sport: params.get("sport"), type: params.get("type"), status: params.get("status"), region: params.get("region") }],
       keepPreviousData: true,
       queryFn: () => fetchEvents(params)
    })
@@ -46,16 +52,48 @@ export default function Experiences() {
             <h2>Filter</h2>
             <div className="sport-filter">
                Sport
-               <select value={selectedSport} onChange={handleSportChange}>
+               <select value={selected.sport} onChange={(e) => handleChange(e, "sport")}>
                   <option value="All">All</option>
-                  {sports.data.map((sport) => (
-                     <option key={sport.key} value={sport.key}>
-                        {sport.name}
+                  {sports.data.map((option) => (
+                     <option key={option.key} value={option.key}>
+                        {option.name}
                      </option>
                   ))}
                </select>
             </div>
-
+            <div className="type-filter">
+               Type
+               <select value={selected.type} onChange={(e) => handleChange(e, "type")}>
+                  <option value="All">All</option>
+                  {types.data.map((option) => (
+                     <option key={option.key} value={option.key}>
+                        {option.name}
+                     </option>
+                  ))}
+               </select>
+            </div>
+            <div className="status-filter">
+               Status
+               <select value={selected.status} onChange={(e) => handleChange(e, "status")}>
+                  <option value="All">All</option>
+                  {eventStatus.data.map((option) => (
+                     <option key={option.key} value={option.key}>
+                        {option.name}
+                     </option>
+                  ))}
+               </select>
+            </div>
+            <div className="region-filter">
+               Region
+               <select value={selected.region} onChange={(e) => handleChange(e, "region")}>
+                  <option value="All">All</option>
+                  {regions.data.map((option) => (
+                     <option key={option.key} value={option.key}>
+                        {option.name}
+                     </option>
+                  ))}
+               </select>
+            </div>
          </div>
          <div className="experiences-list">
             <div className="experiences-list-box">
@@ -85,8 +123,8 @@ export default function Experiences() {
                               <p>Start Date: {FormattedDate(event.startDate)}</p>
                               <p>End Date: {FormattedDate(event.endDate)}</p>
                               <div className="experiences-list-card-down-bot">
-                                 <p>{event.location}</p>
-                                 <p><strong>{event.price} €</strong></p>
+                                 <p className="experiences-list-card-location">{event.location}</p>
+                                 <p className="experiences-list-card-price"><strong>{event.price} €</strong></p>
                               </div>
                            </div>
                         </div>
