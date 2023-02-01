@@ -1,30 +1,53 @@
 import './Experiences.css';
-import React from 'react'
+import React, { useMemo, useState } from 'react'
 import { useQuery } from "@tanstack/react-query"
 import fetchEvents from "./fetchers/events"
 import { useSearchParams } from 'react-router-dom';
 import Card from '../../components/ui/Card';
-import { types, eventStatus } from '../../data/globalData';
+import { types, eventStatus, sports } from '../../data/globalData';
 import FormattedDate from '../../utils/FormattedDate';
 
 
 export default function Experiences() {
    const [params, setParams] = useSearchParams()
+   const [selectedSport, setSelectedSport] = useState("Surf")
+
+   const handleSportChange = (e) => {
+      setSelectedSport(e.target.value);
+      setParams((prevParams) => {
+         return { ...prevParams, sport: e.target.value };
+      });
+   }
+   const queryKey = useMemo(() => ["events", { sport: selectedSport }], [selectedSport]);
 
    const { status, error, data } = useQuery({
-      queryKey: ["events", params],
+      queryKey,
       keepPreviousData: true,
-      queryFn: () => fetchEvents(params),
+      queryFn: () => fetchEvents({sport: selectedSport})
    })
 
    if (status === "loading") return <h1>Loading...</h1>
    if (status === "error") return <h1>{JSON.stringify(error)}</h1>
 
+
    return (
       <div className="experiences">
          <h1 className="experiences-title">U-Experiences</h1>
          <div className="experiences-search">
-
+            <div className="experiences-filter">
+               <h2>Filter</h2>
+               <div className="sport-filter">
+                  Sport
+                  <select value={selectedSport} onChange={handleSportChange}>
+                        <option value="">All</option>
+                        {sports.data.map((sport) => (
+                           <option key={sport.key} value={sport.key}>
+                              {sport.name}
+                           </option>
+                        ))}
+                     </select>
+               </div>
+            </div>
          </div>
          <div className="experiences-list">
             <div className="experiences-list-box">
