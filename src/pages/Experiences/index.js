@@ -28,8 +28,7 @@ export default function Experiences() {
       if (params.has("type")) setSelected(prevSelected => ({ ...prevSelected, type: params.get("type") }));
       if (params.has("status")) setSelected(prevSelected => ({ ...prevSelected, status: params.get("status") }));
       if (params.has("region")) setSelected(prevSelected => ({ ...prevSelected, status: params.get("region") }));
-
-   }, []);
+   }, [params]);
 
 
    const { status, error, data } = useQuery({

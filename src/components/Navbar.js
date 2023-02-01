@@ -11,7 +11,7 @@ export default function Navbar() {
       <nav className='navbar'>
          <NavLink to="/"><img src={logo} alt="Logo" className="navbar-logo" /></NavLink>
          <ul className="navbar-links">
-            <li className="navbar-link"><NavLink className={(element) => element.isActive ? 'selected' : ''} to="/experiences">Uexperiences</NavLink></li>
+            <li className="navbar-link"><NavLink className={(element) => element.isActive ? 'selected' : ''} to="/experiences?status=Open">Uexperiences</NavLink></li>
             {!isLoggedIn && <li className="navbar-link"><NavLink className={(element) => element.isActive ? 'selected' : ''} to="/signup">Sign up</NavLink></li>}
             {!isLoggedIn && <li className="navbar-link"><NavLink className={(element) => element.isActive ? 'selected' : ''} to="/login">Login</NavLink></li>}
             {isLoggedIn && <li className="navbar-link"><NavLink className={(element) => element.isActive ? 'selected' : ''} to="/bookings">Bookings</NavLink></li>}
