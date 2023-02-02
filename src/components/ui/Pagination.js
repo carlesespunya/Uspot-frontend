@@ -1,8 +1,10 @@
-import React from "react";
+import './Pagination.css';
+import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
 export default function Pagination({data}) {
-   const [setParams] = useSearchParams()
+   const [params, setParams] = useSearchParams()
+   const [page, setPage] = useState(1)
 
    const handlePageChange = (page) => {
       setParams(prevParams => {
@@ -11,9 +13,14 @@ export default function Pagination({data}) {
       })
    }
 
+   useEffect(() => {
+      if (params.get("page")) return setPage(params.get("page"))
+   }, [params, page])
+
+
    return (
       <div className="pagination">
-         {data.prevPage && <button onClick={() => handlePageChange(data.previousPage)}>Previous</button>}{" "}
+         {data.prevPage && <button onClick={() => handlePageChange(data.prevPage)}>Previous</button>}
          {data.nextPage && <button onClick={() => handlePageChange(data.nextPage)}>Next</button>}
       </div>
    );

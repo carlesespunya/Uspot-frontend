@@ -9,7 +9,7 @@ export default function ExperiencesList() {
    const [params] = useSearchParams()
 
    const { status, error, data } = useQuery({
-      queryKey: ["events", { sport: params.get("sport"), type: params.get("type"), status: params.get("status"), region: params.get("region") }],
+      queryKey: ["events", { sport: params.get("sport"), type: params.get("type"), status: params.get("status"), region: params.get("region"), page: params.get("page") }],
       keepPreviousData: true,
       queryFn: () => fetchEvents(params)
    })
@@ -27,7 +27,7 @@ export default function ExperiencesList() {
                );
             })}
          </div>
-         <Pagination data={data} />
+         <Pagination data={data.data} />
       </div>
    );
 }
