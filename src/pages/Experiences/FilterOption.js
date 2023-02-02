@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
-export function FilterOption({ category, categoryData }) {
+export default function FilterOption({ category, categoryData }) {
    const [params, setParams] = useSearchParams()
    const [value, setValue] = useState("All")
 

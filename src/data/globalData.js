@@ -226,7 +226,7 @@ const eventStatus = {
          name: 'Finished',
          key: 'Finished',
          img: '',
-         color: '#261F1D',
+         color: '#58595B',
          group: 'status'
       },
       {
