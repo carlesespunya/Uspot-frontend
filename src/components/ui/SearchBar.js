@@ -1,23 +1,24 @@
 import './SearchBar.css';
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import useDebounce from '../../hooks/useDebounce';
 
 
-export default function Paginate({ data }) {
+export default function SearchBar() {
+   // eslint-disable-next-line no-unused-vars
    const [params, setParams] = useSearchParams()
-   const [page, setPage] = useState(1)
+   const [input, setInput] = useState("")
 
    const onChange = (e) => {
-      console.log(e.target.value)
-   //    setParams(prevParams => {
-   //       prevParams.set("page", page)
-   //       return prevParams
-   //    })
+      setInput(e.target.value)
    }
 
-   useEffect(() => {
-      if (params.get("page")) return setPage(params.get("page"))
-   }, [params, page])
+   useDebounce(() => {
+      setParams(prevParams => {
+         prevParams.set("title", input)
+         return prevParams
+      })
+   }, 1000, [input])
 
    return (
       <div className='search-bar'>
