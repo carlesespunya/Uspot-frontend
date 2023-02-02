@@ -20,6 +20,7 @@ export default function Pagination({data}) {
 
    return (
       <div className="pagination">
+         <p className="pagination-text">Page: { page } / {data.totalPages}</p>
          {data.prevPage && <button onClick={() => handlePageChange(data.prevPage)}>Previous</button>}
          {data.nextPage && <button onClick={() => handlePageChange(data.nextPage)}>Next</button>}
       </div>

@@ -1,4 +1,4 @@
-import { FilterOption } from './FilterOption';
+import FilterOption from './FilterOption';
 import React from "react";
 import { eventStatus, regions, sports, types } from "../../data/globalData";
 
