@@ -1,4 +1,4 @@
-import Pagination from '../../components/ui/Pagination';
+import Paginate from '../../components/ui/Paginate';
 import React from "react";
 import { useSearchParams } from "react-router-dom";
 import ExperiencesCard from './ExperiencesCard';
@@ -27,7 +27,7 @@ export default function ExperiencesList() {
                );
             })}
          </div>
-         <Pagination data={data.data} />
+         <Paginate data={data.data} />
       </div>
    );
 }
