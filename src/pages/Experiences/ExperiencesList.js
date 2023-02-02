@@ -1,7 +1,23 @@
+import Pagination from '../../components/ui/Pagination';
 import React from "react";
+import { useSearchParams } from "react-router-dom";
 import ExperiencesCard from './ExperiencesCard';
+import { useQuery } from "@tanstack/react-query"
+import fetchEvents from "./fetchers/events"
 
-export default function ExperiencesList({ data }) {
+export default function ExperiencesList() {
+   const [params] = useSearchParams()
+
+   const { status, error, data } = useQuery({
+      queryKey: ["events", { sport: params.get("sport"), type: params.get("type"), status: params.get("status"), region: params.get("region") }],
+      keepPreviousData: true,
+      queryFn: () => fetchEvents(params)
+   })
+
+   if (status === "loading") return <h1>Loading...</h1>
+   if (status === "error") return <h1>{JSON.stringify(error.message)}</h1>
+
+
    return (
       <div className="experiences-list">
          <div className="experiences-list-box">
@@ -11,6 +27,7 @@ export default function ExperiencesList({ data }) {
                );
             })}
          </div>
+         <Pagination data={data} />
       </div>
    );
 }
