@@ -1,4 +1,4 @@
-import Pagination from '../../components/ui/Pagination';
+import Paginate from '../../components/ui/Paginate';
 import React from "react";
 import { useSearchParams } from "react-router-dom";
 import ExperiencesCard from './ExperiencesCard';
@@ -9,7 +9,7 @@ export default function ExperiencesList() {
    const [params] = useSearchParams()
 
    const { status, error, data } = useQuery({
-      queryKey: ["events", { sport: params.get("sport"), type: params.get("type"), status: params.get("status"), region: params.get("region"), page: params.get("page") }],
+      queryKey: ["events", { sport: params.get("sport"), type: params.get("type"), status: params.get("status"), region: params.get("region"), page: params.get("page"), title: params.get("title") }],
       keepPreviousData: true,
       queryFn: () => fetchEvents(params)
    })
@@ -27,7 +27,7 @@ export default function ExperiencesList() {
                );
             })}
          </div>
-         <Pagination data={data.data} />
+         <Paginate data={data.data} />
       </div>
    );
 }
