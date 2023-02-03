@@ -1,11 +1,10 @@
 import './SearchBar.css';
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import useDebounce from '../../hooks/useDebounce';
 
 
 export default function SearchBar() {
-   // eslint-disable-next-line no-unused-vars
    const [params, setParams] = useSearchParams()
    const [input, setInput] = useState("")
 
@@ -20,10 +19,15 @@ export default function SearchBar() {
       })
    }, 1000, [input])
 
+   useEffect(() => {
+      if (params.get("title")) return setInput(params.get("title"))
+   // eslint-disable-next-line react-hooks/exhaustive-deps
+   }, [])
+
    return (
       <div className='search-bar'>
          <p className='search-bar-text'>Search by name: </p>
-         <input onChange={onChange} className="search-bar" type="search" />
+         <input value={input} onChange={onChange} className="search-bar" type="search" />
       </div>
    )
 }

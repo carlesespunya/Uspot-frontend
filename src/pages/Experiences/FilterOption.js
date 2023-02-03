@@ -8,10 +8,12 @@ export default function FilterOption({ category, categoryData }) {
    const handleChange = (e) => {
       setParams(prevParams => {
          if (e.target.value === "All") {
+            setValue("All")
             prevParams.delete(category);
             return prevParams
          }
          prevParams.set(category, e.target.value);
+         setValue(e.target.value)
          return prevParams
       })
    }
@@ -19,7 +21,8 @@ export default function FilterOption({ category, categoryData }) {
    useEffect(() => {
       if (params.get(category)) return setValue(params.get(category))
       setValue("All")
-   }, [params, category])
+   // eslint-disable-next-line react-hooks/exhaustive-deps
+   }, [])
 
    return (
       <div className="filter-opiton">
