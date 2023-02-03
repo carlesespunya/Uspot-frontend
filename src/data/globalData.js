@@ -239,5 +239,12 @@ const eventStatus = {
    ]
 }
 
+const sortOptions = [
+   { value: "startDate,desc", label: "Start Date: descending" },
+   { value: "startDate,asc", label: "Start Date: ascending" },
+   { value: "price,desc", label: "Price: descending" },
+   { value: "price,asc", label: "Price: ascending" }
+];
 
-export { types, sports, regions, bookingStatus, eventStatus }
+
+export { types, sports, regions, bookingStatus, eventStatus, sortOptions }
