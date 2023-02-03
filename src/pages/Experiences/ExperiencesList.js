@@ -21,11 +21,11 @@ export default function ExperiencesList() {
    return (
       <div className="experiences-list">
          <div className="experiences-list-box">
-            {data.data.events.map(event => {
-               return (
+            {data.data.events && data.data.events.length > 0
+               ? data.data.events.map(event => (
                   <ExperiencesCard event={event} key={event._id} />
-               );
-            })}
+               ))
+               : <h2>No events found</h2>}
          </div>
          <Paginate data={data.data} />
       </div>
