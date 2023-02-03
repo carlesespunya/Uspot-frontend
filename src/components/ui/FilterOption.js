@@ -13,7 +13,7 @@ export default function FilterOption({ category, categoryData }) {
             prevParams.delete(category);
             return prevParams
          }
-
+         prevParams.set("page", 1);
          setValue(e.target.value)
          prevParams.set(category, e.target.value);
 
