@@ -1,22 +1,39 @@
 import React from "react";
 import { types, eventStatus } from '../../data/globalData';
 
-export default function ExperiencesCardTop({ event }) {
+const findType = typeKey => {
+   const type = types.data.find(t => t.key === typeKey);
+   return type ? type : { name: "", color: "" };
+};
+
+const findStatus = statusKey => {
+   const status = eventStatus.data.find(s => s.key === statusKey);
+   return status ? status : { name: "", color: "" };
+};
+
+export default function ExperiencesCardTop({ event = {} }) {
+   const { mediaUrls = [], type, sport, status, user = {} } = event;
+   const [mediaUrl = ""] = mediaUrls;
+   const { imageUrl = "" } = user;
+
+   const { color: typeColor = "", name: typeName = "" } = findType(type);
+   const { color: statusColor = "", name: statusName = "" } = findStatus(status);
+
    return (
-      <div className="experiences-list-card-up" style={{ backgroundImage: `url(${event.mediaUrls[0]})` }}>
+      <div className="experiences-list-card-up" style={{ backgroundImage: `url(${mediaUrl})` }}>
          <div className="experiences-list-card-up-top">
-            <div className="experiences-list-card-info" style={{ backgroundColor: types.data.find(type => type.key === event.type).color }}>
-               {types.data.find(type => type.key === event.type).name}
+            <div className="experiences-list-card-info" style={{ backgroundColor: typeColor }}>
+               {typeName}
             </div>
             <div className="experiences-list-card-info text-white">
-               {event.sport}
+               {sport}
             </div>
          </div>
          <div className="experiences-list-card-up-top">
-            <div className="experiences-list-card-user-img" style={{ backgroundImage: `url(${event.user.imageUrl})` }}>
+            <div className="experiences-list-card-user-img" style={{ backgroundImage: `url(${imageUrl})` }}>
             </div>
-            <div className="experiences-list-card-info experiences-status-card" style={{ backgroundColor: eventStatus.data.find(status => status.key === event.status).color }}>
-               {eventStatus.data.find(status => status.key === event.status).name}
+            <div className="experiences-list-card-info experiences-status-card" style={{ backgroundColor: statusColor }}>
+               {statusName}
             </div>
          </div>
       </div>
