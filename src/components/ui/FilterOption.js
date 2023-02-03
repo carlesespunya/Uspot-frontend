@@ -1,3 +1,4 @@
+import './FilterOption.css'
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
@@ -12,8 +13,10 @@ export default function FilterOption({ category, categoryData }) {
             prevParams.delete(category);
             return prevParams
          }
-         prevParams.set(category, e.target.value);
+
          setValue(e.target.value)
+         prevParams.set(category, e.target.value);
+
          return prevParams
       })
    }

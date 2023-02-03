@@ -1,4 +1,4 @@
-import FilterOption from './FilterOption';
+import FilterOption from '../../components/ui/FilterOption';
 import React from "react";
 import { eventStatus, regions, sports, types } from "../../data/globalData";
 import SearchBar from '../../components/ui/SearchBar'
