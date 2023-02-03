@@ -1,5 +1,5 @@
 import './Paginate.css';
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
 export default function Paginate({data}) {
@@ -14,6 +14,10 @@ export default function Paginate({data}) {
          return prevParams
       })
    }
+
+   useEffect(() => {
+      if (params.get("page")) return setPage(params.get("page"))
+   }, [params])
 
    return (
       <div className='pagination'>
