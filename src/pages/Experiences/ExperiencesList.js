@@ -17,15 +17,14 @@ export default function ExperiencesList() {
    if (status === "loading") return <h1>Loading...</h1>
    if (status === "error") return <h1>{JSON.stringify(error.message)}</h1>
 
-
    return (
       <div className="experiences-list">
          <div className="experiences-list-box">
-            {data.data.events.map(event => {
-               return (
+            {data.data.events && data.data.events.length > 0
+               ? data.data.events.map(event => (
                   <ExperiencesCard event={event} key={event._id} />
-               );
-            })}
+               ))
+               : <h2>No events found</h2>}
          </div>
          <Paginate data={data.data} />
       </div>

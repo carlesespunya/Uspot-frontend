@@ -1,6 +1,7 @@
 import './SortBy.css';
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import { sortOptions } from '../../data/globalData';
 
 export default function SortBy() {
    const [params, setParams] = useSearchParams()
@@ -26,10 +27,13 @@ export default function SortBy() {
       <div className="sortBy">
          <h3>Sort By: </h3>
          <select value={sort} onChange={handleChange}>
-            <option value="startDate,desc">Start Date: descending</option>
-            <option value="startDate,asc">Start Date: ascending</option>
-            <option value="price,desc">Price: descending</option>
-            <option value="price,asc">Price: ascending</option>
+            {sortOptions.map(option => {
+               return (
+                  <option key={option.value} value={option.value}>
+                     {option.label}
+                  </option>
+               )
+            })}
          </select>
       </div>
    )
