@@ -15,7 +15,7 @@ export default function ExperiencesList() {
    })
 
    if (status === "loading") return <h1>Loading...</h1>
-   if (status === "error") return <h1>{JSON.stringify(error.message)}</h1>
+   if (status === "error") return <h1 style={{ color: 'red' }}>{error.response.data.error}</h1>
 
    return (
       <div className="experiences-list">
