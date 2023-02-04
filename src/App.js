@@ -12,6 +12,7 @@ import Experience from './pages/Experience';
 import Experiences from './pages/Experiences';
 import Profile from './pages/Profile';
 import MyProfile from './pages/MyProfile';
+import IsBusiness from './components/IsBusiness';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
             <Route path="/experiences" element={<Experiences />} />
             <Route path="/users/:userId" element={<IsPrivate><Profile /></IsPrivate>} />
             <Route path="/myProfile" element={<IsPrivate><MyProfile /></IsPrivate>} />
+            <Route path="/business" element={<IsBusiness><h1>Busines page</h1></IsBusiness>} />
             <Route path="*" element={<ErrorPage />} />
          </Routes>
       </div>
