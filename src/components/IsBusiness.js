@@ -4,12 +4,12 @@ import { Navigate } from "react-router-dom";
 
 export default function IsBusiness({ children }) {
 
-   const { business, isLoading } = useContext(AuthContext);
+   const { isBusiness, isLoading } = useContext(AuthContext);
 
    // If the authentication is still loading
    if (isLoading) return <p>Loading ...</p>;
 
-   if (!business) {
+   if (!isBusiness) {
       // If the user is not logged in
       return <Navigate to="/" />;
    } else {
