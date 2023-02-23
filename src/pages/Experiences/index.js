@@ -4,11 +4,11 @@ import Filter from './Filter'
 
 export default function Experiences() {
 
-   return (
-      <div className="experiences">
-         <h1 className="experiences-title">U-Experiences</h1>
-         <Filter />
-         <ExperiencesList />
-      </div>
-   )
+  return (
+    <div className="experiences">
+      <h1 className="experiences-title">U-Experiences</h1>
+      <Filter />
+      <ExperiencesList />
+    </div>
+  )
 }
