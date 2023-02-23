@@ -2,9 +2,9 @@ import './Profile.css';
 import React from 'react';
 
 export default function Profile() {
-   return (
-      <>
-         <h1>Profile</h1>
-      </>
-   )
+  return (
+    <>
+      <h1>Profile</h1>
+    </>
+  )
 }
