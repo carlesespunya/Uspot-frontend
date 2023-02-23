@@ -5,14 +5,14 @@ import HomeSection from './HomeSection';
 import HomeBanner from './HomeBanner';
 
 export default function Home() {
-   return (
-      <>
-         <HomeBanner />
-         <div className="home-sections">
-            <HomeSection section={sports} />
-            <HomeSection section={types} />
-            <HomeSection section={regions} />
-         </div>
-      </>
-   )
+  return (
+    <>
+      <HomeBanner />
+      <div className="home-sections">
+        <HomeSection section={sports} />
+        <HomeSection section={types} />
+        <HomeSection section={regions} />
+      </div>
+    </>
+  )
 }

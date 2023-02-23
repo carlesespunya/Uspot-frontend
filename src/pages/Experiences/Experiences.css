@@ -1,103 +1,103 @@
-.experiences{
-   padding: 50px 70px;
-   max-width: 1393px;
-   margin: auto;
+.experiences {
+  padding: 50px 70px;
+  max-width: 1393px;
+  margin: auto;
 }
 
-.experiences-title{
-   font-weight: 700;
-   font-size: 33.18px;
-   line-height: 40px;
+.experiences-title {
+  font-weight: 700;
+  font-size: 33.18px;
+  line-height: 40px;
 }
 
-.experiences-list-box{
-   display: flex;
-   flex-wrap: wrap;
-   justify-content: center;
+.experiences-list-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .experiences-list-card {
-   width: 328px;
-   height: 284px;
-   border-radius: inherit;
-   background: #F5F5F5;
+  width: 328px;
+  height: 284px;
+  border-radius: inherit;
+  background: #f5f5f5;
 }
 
-.experiences-list-card-up{
-   height: 170px;
-   padding: 8px;
-   background-position: bottom;
-   background-repeat: no-repeat;
-   background-size: cover;
-   border-top-left-radius: inherit;
-   border-top-right-radius: inherit;
-   display: flex;
-   flex-direction: column;
-   justify-content: space-between;
+.experiences-list-card-up {
+  height: 170px;
+  padding: 8px;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.experiences-list-card-up-top{
-   display: flex;
-   justify-content: space-between;
+.experiences-list-card-up-top {
+  display: flex;
+  justify-content: space-between;
 }
 
-.experiences-list-card-info{
-   font-weight: 600;
-   font-size: 13.33px;
-   line-height: 40px;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   width: 120px;
-   height: 28px;
-   background: rgba(29, 29, 29, 0.5);
-   border-radius: 5px;
+.experiences-list-card-info {
+  font-weight: 600;
+  font-size: 13.33px;
+  line-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 28px;
+  background: rgba(29, 29, 29, 0.5);
+  border-radius: 5px;
 }
 
-.experiences-list-card-user-img{
-   border-radius: 50%;
-   width: 40px;
-   height: 40px;
-   background-position: bottom;
-   background-repeat: no-repeat;
-   background-size: cover;
+.experiences-list-card-user-img {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.experiences-status-card{
-   align-self: end;
+.experiences-status-card {
+  align-self: end;
 }
 
-.experiences-list-card-down{
-   padding: 8px;
+.experiences-list-card-down {
+  padding: 8px;
 }
 
-.experiences-list-card-title{
-   white-space: nowrap;
-   overflow: auto;
-   display: block;
-   font-weight: 400;
-   font-size: 16px;
+.experiences-list-card-title {
+  white-space: nowrap;
+  overflow: auto;
+  display: block;
+  font-weight: 400;
+  font-size: 16px;
 }
 
-.experiences-list-card-down-bot{
-   display: flex;
-   justify-content: space-between;
+.experiences-list-card-down-bot {
+  display: flex;
+  justify-content: space-between;
 }
 
-.experiences-list-card-location{
-   white-space: nowrap;
-   overflow: auto;
-   display: block;
+.experiences-list-card-location {
+  white-space: nowrap;
+  overflow: auto;
+  display: block;
 }
 
-.experiences-list-card-price{
-   width: 60px;
-   padding-left: 10px;
-   text-align: end;
+.experiences-list-card-price {
+  width: 60px;
+  padding-left: 10px;
+  text-align: end;
 }
 
-.experiences-filter{
-   display: flex;
-   justify-content: space-between;
-   margin: 20px auto;
+.experiences-filter {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px auto;
 }
