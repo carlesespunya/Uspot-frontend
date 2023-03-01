@@ -1,3 +1,3 @@
 # Uspot Frontend
 
-Frontend react app for Uspot
+Uspot frontend repo 
